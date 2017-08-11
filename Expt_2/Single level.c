@@ -15,7 +15,7 @@ void main()
 	printf("\nEnter name of directory : ");
 	scanf("%s", dir.dname);
 	while(1)
-	{	printf("\t\t------SINGLE LEVEL DIRECTORY ORGANIZATION--------");
+	{	printf("\n\t\t------SINGLE LEVEL DIRECTORY-------");
 		printf("\n\n\t1. Create File\n\t2. Delete File\n\t3. Search File \n\t4. Display Files\n\t5. Exit\n\n\tEnter your choice : ");
 		scanf("%d",&ch);
 		switch(ch)
@@ -57,7 +57,7 @@ void main()
 				printf("\n Directory Empty");
 				else
 				{
-					printf("\n The Files are -- ");
+					printf("\n The Files are :");
 					for(i=0;i<dir.fcnt;i++)
 					printf("\t%s",dir.fname[i]);
 				}
