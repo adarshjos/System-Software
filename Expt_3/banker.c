@@ -14,7 +14,43 @@ void print(int x[][10],int n,int m){
 	}	
 }
 
+void resoucrcereq(int alloc[][10],int need[][10],int avail[],int id,int m,int n){
 
+	int resreq[10],i;
+	printf("\nAdditional Resource Request  \n--------------------------\n");
+	for(i=0;i<m;i++){
+		printf(" Request for resource[%d]: ",i+1);
+		scanf("%d",&resreq[i]);
+				}
+
+	for(i=0;i<m;i++)
+		if(resreq[i] > need[id][i]){
+			printf("\n Error ..Terminating\n");
+			exit(0);
+	}
+
+	for(i=0;i<m;i++)
+		if(resreq[i] > avail[i]){
+			printf("\n Resources unavailable\n");
+		exit(0);
+	}
+
+
+	for(i=0;i<m;i++){
+		avail[i]-=resreq[i];
+		alloc[id][i]+=resreq[i];
+		need[id][i]-=resreq[i];
+}
+
+	printf("\n Allocation Matrix\n");
+	printf("------------------------\n");
+	print(alloc,n,m);
+	printf("\n Need Matrix\n");
+	printf("------------------------\n");
+	print(need,n,m);
+
+
+}
 
 
 void getdata(int n,int m,int alloc[][10],int max[][10],int avail[],int need[][10]){
@@ -67,8 +103,7 @@ int safety(int n,int m,int alloc[][10],int avail[],int need[][10],int safety_seq
 	{
 	for (i = 0; i < n; i++)
 	{
-		if(f[i]==0)
-			{fflag=0;}
+			fflag=0;
 		for(j=0;j<m;j++)
 		{
 			if(need[i][j]>w[j])
@@ -122,7 +157,7 @@ return 0;
 		if(ch == 1){
 			printf("\n Enter process no. : ");
 			scanf("%d",&id);
-			//res_request(alloc,need,avail,(id-1),m);
+			resoucrcereq(alloc,need,avail,id-1,m,n);
 			flag=safety(n,m,alloc,avail,need,safety_seq);
 			if(flag == 0 )
 				exit(0);
