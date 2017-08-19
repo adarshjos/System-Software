@@ -1,6 +1,6 @@
 #include<stdio.h> 
  
-int main() 
+int main()
 { 
       int i, limit, total = 0, x, counter = 0, time_quantum; 
       int wait_time = 0, turnaround_time = 0, arrival_time[10], burst_time[10], temp[10]; 
